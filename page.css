@@ -1,0 +1,33 @@
+p
+	{
+		font-family: "Times New Roman", "Arial Black", Impact;
+		font-size: 14px;
+		width: 350px;
+		border: 1px solid black;
+		text-align: justify;
+		padding: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 50px;
+	}
+	
+
+h1
+	{
+		font-size: 30px;
+		text-align: center;
+		color: black
+	}
+
+html, body
+	{
+		background-image: url("chacal2.jpg");
+		background-repeat: no-repeat;
+		background-size:cover;
+		color: black;
+	}
+
+.interface
+	{
+		width: 250px;
+	}
