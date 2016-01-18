@@ -6,7 +6,7 @@
 <html>
 	<link rel="stylesheet" href="traitement.css" />
 	<body>
-		<form method="post" action="index.php">
+		<form method="post" action="index.html">
 			
 			<p class="Interface2">
 				<input type="submit" value="Déconnexion" />
@@ -14,8 +14,11 @@
 			
   		<p><?php
   		
-  		$pseudo = $_POST['pseudo'];
-  		$pass = $_POST['pass'];
+  		$pseudo = $_POST['Username'];
+  		$pass = $_POST['Password'];
+  		$new_pseudo = $_POST['NewUsername'];
+  		$new_pseudo_verif = $_POST['NewUsenameVerif'];
+  		$new_pass = $_POST['NewPassword'];
   		
   		function checkParam($param)
 		{
