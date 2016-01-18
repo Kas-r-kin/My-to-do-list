@@ -16,9 +16,9 @@
   		
   		$pseudo = $_POST['Username'];
   		$pass = $_POST['Password'];
-  		$new_pseudo = $_POST['NewUsername'];
+  		/*$new_pseudo = $_POST['NewUsername'];
   		$new_pseudo_verif = $_POST['NewUsenameVerif'];
-  		$new_pass = $_POST['NewPassword'];
+  		$new_pass = $_POST['NewPassword'];*/
   		
   		function checkParam($param)
 		{
@@ -39,7 +39,6 @@
 				//Retire le caractère de contrôle \n
 				if($ligne == $param)
 				{
-					echo "ça marche !";
 					$validation = 1;
 				}
 			}
@@ -53,7 +52,6 @@
 			if (checkUser($pseudo) && checkUser($pass))
 			{
 				echo "Bonjour";
-				session_start();
 				$_SESSION['auth']=true;
 				$_SESSION['login']=$pseudo;
 			}
