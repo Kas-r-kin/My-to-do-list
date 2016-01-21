@@ -1,7 +1,6 @@
 <!-- http://fc.isima.fr/~rophelizon -->
 
 <!-- Implémenter des tests auto avec travis -->
-<!-- Présentation : 1 partie dev, 1 partie outils-->
 
 <!DOCTYPE html>
 <html>
@@ -52,10 +51,9 @@
 		{
 			if (checkUser($pseudo) && checkUser($pass))
 			{
+				echo "Bonjour";
 				$_SESSION['auth']=true;
 				$_SESSION['login']=$pseudo;
-				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.html');
-				exit();
 			}
 			else{ echo 'Utilisateur inconnu';}
 		}

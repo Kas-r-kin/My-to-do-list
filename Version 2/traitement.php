@@ -1,13 +1,12 @@
 <!-- http://fc.isima.fr/~rophelizon -->
 
 <!-- Implémenter des tests auto avec travis -->
-<!-- Présentation : 1 partie dev, 1 partie outils-->
 
 <!DOCTYPE html>
 <html>
 	<link rel="stylesheet" href="traitement.css" />
 	<body>
-		<form method="post" action="index.html">
+		<form method="post" action="index.php">
 			
 			<p class="Interface2">
 				<input type="submit" value="Déconnexion" />
@@ -15,11 +14,8 @@
 			
   		<p><?php
   		
-  		$pseudo = $_POST['Username'];
-  		$pass = $_POST['Password'];
-  		/*$new_pseudo = $_POST['NewUsername'];
-  		$new_pseudo_verif = $_POST['NewUsenameVerif'];
-  		$new_pass = $_POST['NewPassword'];*/
+  		$pseudo = $_POST['pseudo'];
+  		$pass = $_POST['pass'];
   		
   		function checkParam($param)
 		{
@@ -40,6 +36,7 @@
 				//Retire le caractère de contrôle \n
 				if($ligne == $param)
 				{
+					echo "ça marche !";
 					$validation = 1;
 				}
 			}
@@ -52,10 +49,10 @@
 		{
 			if (checkUser($pseudo) && checkUser($pass))
 			{
+				echo "Bonjour";
+				session_start();
 				$_SESSION['auth']=true;
 				$_SESSION['login']=$pseudo;
-				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.html');
-				exit();
 			}
 			else{ echo 'Utilisateur inconnu';}
 		}
