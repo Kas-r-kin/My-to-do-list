@@ -73,6 +73,16 @@
 			echo "</p>";
 			
   		echo "<p>";
+  		
+  		echo "</p>"; 		
+  		echo "</form>";
+  		
+  		echo "<form method=\"post\" action=\"ModifTache.php?Tache=$nom_tache&amp;type=$type\">";
+			echo "<p class=\"Interface2\">";
+				echo "<input type=\"submit\" value=\"Modifier\" />";
+			echo "</p>";
+			
+  		echo "<p>";
 		
 
 
