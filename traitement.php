@@ -13,7 +13,8 @@
 				<input type="submit" value="Déconnexion" />
 			</p>
 			
-  		<p><?php
+  		<p>
+		<?php
   		
   		$pseudo = $_POST['Username'];
   		$pass = $_POST['Password'];
@@ -32,7 +33,7 @@
 			$validation = 0;
 			$BDD = fopen("./BDD.txt", "r");
 			
-			
+			 
 			while(!feof($BDD))
 			{
 				$ligne = fgets($BDD);
@@ -54,17 +55,15 @@
 			{
 				$_SESSION['auth']=true;
 				$_SESSION['login']=$pseudo;
-				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.html');
+				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.php');
 				exit();
 			}
 			else{ echo 'Utilisateur inconnu';}
 		}
 		else{ echo 'il manque quelque chose!';}
   		
-  		?></p>
-
-  		<!--<p> <a href="index.php"> <input type="submit" value="Déconnexion" /></a> </p>-->
-  		
+  		?>
+  		</p> 		
   		</form>
 	</body>
 </html>
