@@ -84,6 +84,8 @@
 		$fichier = fopen("./TitreEnCours.txt", "r");
 		$nom = fgets($fichier);
 		$nom = substr($nom, 0, strlen($nom)-1);
+		
+		
 		while(!feof($fichier))
 		{
        echo "<div class=\"row\">";
@@ -119,7 +121,6 @@
     </div>
     <!-- /.container -->
     
-    ?>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
