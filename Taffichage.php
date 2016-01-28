@@ -41,6 +41,8 @@
 				fscanf($fic, "%s", $date_debut);
 				fscanf($fic, "%s", $date_fin);
 				
+				echo "Tache: $nom_tache";
+				echo "</br>";
 				echo "Date de début: $date_debut";
 				echo "</br>";
 				echo "Date de début: $date_fin";
@@ -77,6 +79,8 @@
   		echo "</p>"; 		
   		echo "</form>";
   		
+  		
+  		
   		echo "<form method=\"post\" action=\"ModifTache.php?Tache=$nom_tache&amp;type=$type\">";
 			echo "<p class=\"Interface2\">";
 				echo "<input type=\"submit\" value=\"Modifier\" />";
@@ -84,11 +88,21 @@
 			
   		echo "<p>";
 		
-
-
-		
-		echo "</p>"; 		
+		echo "</p>";
   		echo "</form>";
+  		
+  		
+  		
+  		echo "<form method=\"post\" action=\"SuppressionTache.php?Tache=$nom_tache&amp;type=$type\">";
+			echo "<p class=\"Interface2\">";
+				echo "<input type=\"submit\" value=\"Supprimer\" />";
+			echo "</p>";
+			
+  		echo "<p>";
+		
+		echo "</p>";
+  		echo "</form>";
+  		
 ?>
 
 
