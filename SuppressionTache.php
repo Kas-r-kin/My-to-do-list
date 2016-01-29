@@ -13,27 +13,27 @@
 			switch ($typetache) 
 			{
 				case 1:
-					$fic1 = fopen("./TacheEnCours.txt", "a+");
-					$fic2 = fopen("./TitreEnCours.txt", "a+");		
+					$fic1 = fopen("./Taches/TacheEnCours.txt", "a+");
+					$fic2 = fopen("./Taches/TitreEnCours.txt", "a+");		
 					$retour = "accueil.php";
-					$nom1 = "./TacheEnCours.txt";
-					$nom2 = "./TitreEnCours.txt";
+					$nom1 = "./Taches/TacheEnCours.txt";
+					$nom2 = "./Taches/TitreEnCours.txt";
 				break;
 				
 				case 2:
-					$fic1 = fopen("./TacheAFaire.txt", "a+");
-					$fic2 = fopen("./TitreAFaire.txt", "a+");
+					$fic1 = fopen("./Taches/TacheAFaire.txt", "a+");
+					$fic2 = fopen("./Taches/TitreAFaire.txt", "a+");
 					$retour = "Tafaire.php";
-					$nom1 = "./TacheAFaire.txt";
-					$nom2 = "./TitreAFaire.txt";
+					$nom1 = "./Taches/TacheAFaire.txt";
+					$nom2 = "./Taches/TitreAFaire.txt";
 				break;
 				
 				case 3:
-					$fic1 = fopen("./TacheTermine.txt", "a+");
-					$fic2 = fopen("./TitreTermine.txt", "a+");
+					$fic1 = fopen("./Taches/TacheTermine.txt", "a+");
+					$fic2 = fopen("./Taches/TitreTermine.txt", "a+");
 					$retour = "Ttermine.php";
-					$nom1 = "./TacheTermine.txt";
-					$nom2 = "./TitreTermine.txt";
+					$nom1 = "./Taches/TacheTermine.txt";
+					$nom2 = "./Taches/TitreTermine.txt";
 				break;
 			}
 			

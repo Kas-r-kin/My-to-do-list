@@ -2,7 +2,7 @@
 
 <?php
 
-		$titre = $_POST['titre'];
+		$titre = $_GET['titre'];
 		$typetache = $_POST['typetache'];
 		$datedeb = $_POST['datedeb'];
 		$datefin = $_POST['datefin'];
@@ -13,20 +13,20 @@
 		switch ($type) 
 		{
 			case 1:
-				$fic1 = fopen("./TacheEnCours.txt", "a+");
-				$fic2 = fopen("./TitreEnCours.txt", "a+");		
+				$fic1 = fopen("./Taches/TacheEnCours.txt", "a+");
+				$fic2 = fopen("./Taches/TitreEnCours.txt", "a+");		
 				$retour = "accueil.php";
 			break;
 			
 			case 2:
-				$fic1 = fopen("./TacheAFaire.txt", "a+");
-				$fic2 = fopen("./TitreAFaire.txt", "a+");
+				$fic1 = fopen("./Taches/TacheAFaire.txt", "a+");
+				$fic2 = fopen("./Taches/TitreAFaire.txt", "a+");
 				$retour = "Tafaire.php";
 			break;
 			
 			case 3:
-				$fic1 = fopen("./TacheTermine.txt", "a+");
-				$fic2 = fopen("./TitreTermine.txt", "a+");
+				$fic1 = fopen("./Taches/TacheTermine.txt", "a+");
+				$fic2 = fopen("./Taches/TitreTermine.txt", "a+");
 				$retour = "Ttermine.php";
 			break;
         }
@@ -40,9 +40,10 @@
 			fprintf($fic1, $datefin);
 			fprintf($fic1, "\n");
 			fprintf($fic1, $contenu);
-			
 			fprintf($fic1, "\n");
+			
 			fprintf($fic2, $titre);
+			fprintf($fic2, "\n");
 			
 			fclose($fic1);
 			fclose($fic2);

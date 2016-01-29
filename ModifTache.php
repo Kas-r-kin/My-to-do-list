@@ -1,5 +1,3 @@
-<!-- L'appel de GestionTache.php ne modifie rien... -->
-
 <html>
 	<body>
 
@@ -13,17 +11,17 @@
 		switch ($typetache) 
 		{
 			case 1:
-				$fic = fopen("./TacheEnCours.txt", "r");
+				$fic = fopen("./Taches/TacheEnCours.txt", "r");
 				$retour = "accueil.php";
 			break;
 			
 			case 2:
-				$fic = fopen("./TacheAFaire.txt", "r");
+				$fic = fopen("./Taches/TacheAFaire.txt", "r");
 				$retour = "Tafaire.php";
 			break;
 			
 			case 3:
-				$fic = fopen("./TacheTermine.txt", "r");
+				$fic = fopen("./Taches/TacheTermine.txt", "r");
 				$retour = "Ttermine.php";
 			break;
         }
@@ -41,28 +39,6 @@
 				fscanf($fic, "%s", $datedeb);
 				fscanf($fic, "%s", $datefin);
 				
-				echo "<h1>Modification de tâche</h1>";
-				
-		echo "<form method=\"post\" action=\"GestionTache.php\">";
-		echo "<p class=\"Interface\">";
-				
-				echo "<p>Titre</p>";
-   			    echo "<label for=\"titre\"></label>";
-    			echo "<input type=\"text\" name=\"titre\" id=\"titre\" value= \"$titre\" placeholder= \"Titre\" /></br>";
-    			
-    			echo "<p>Type de tâche</p>";
-    			echo "<label for=\"typetache\"></label>";
-   			    echo "<input type=\"typetache\" name=\"typetache\" id=\"typetache\" value=\"$typetache\" placeholder= \"En cours = 1 / A faire = 2\" /></br>";
- 		      
-				echo "<p>Date de début</p>";
-    			echo "<label for=\"datedeb\"></label>";
-   			    echo "<input type=\"datedeb\" name=\"datedeb\" id=\"datedeb\" value=\"$datedeb\" placeholder= \"Date de début\" /></br>";
-   			    
-   			    echo "<p>Date de fin</p>";
-   			    echo "<label for=\"datefin\"></label>";
-   			    echo "<input type=\"datefin\" name=\"datefin\" id=\"datefin\" value=\"$datefin\" placeholder= \"Date de fin\" /></br>";
-   			    
-
 				$contenu = "";
 				$balayage = fgets($fic);
 				
@@ -78,8 +54,29 @@
 					
 				}
 				
+				echo "<h1>Modification de tâche</h1>";
+				echo "<p>$titre</p>";
+				
+		echo "<form method=\"post\" action=\"RemplacementTache.php?Type=$typetache&amp;titre=$titre&amp;Adatedeb=$datedeb&amp;Adatefin=$datefin&amp;Acontenu=$contenu\">";
+		echo "<p class=\"Interface\">";
+    			
+    			echo "<p>Type de tâche</p>";
+    			echo "<label for=\"typetache\"></label>";
+   			    echo "<input type=\"typetache\" name=\"typetache\" id=\"typetache\" value=\"$typetache\" placeholder= \"En cours = 1 / A faire = 2\" /></br>";
+ 		      
+				echo "<p>Date de début</p>";
+    			echo "<label for=\"datedeb\"></label>";
+   			    echo "<input type=\"datedeb\" name=\"datedeb\" id=\"datedeb\" value=\"$datedeb\" placeholder= \"Date de début\" /></br>";
+   			    
+   			    echo "<p>Date de fin</p>";
+   			    echo "<label for=\"datefin\"></label>";
+   			    echo "<input type=\"datefin\" name=\"datefin\" id=\"datefin\" value=\"$datefin\" placeholder= \"Date de fin\" /></br>";
+   			    
+
+				
+				
 				echo "<p>Objectifs</p>";
-   			    echo "<textarea name=\"contenu\" rows=\"30\" cols=\"100\">\"$contenu\"</textarea></br>";
+   			    echo "<textarea name=\"Ncontenu\" rows=\"30\" cols=\"100\">\"$contenu\"</textarea></br>";
    			    
 				echo "<input type=\"submit\" value=\"Valider\" />";
 		echo "</p>";

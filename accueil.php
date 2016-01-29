@@ -83,7 +83,7 @@
 		
 		$Type = 1;
         echo "<!-- Projects Row -->";
-		$fichier = fopen("./TitreEnCours.txt", "r");
+		$fichier = fopen("./Taches/TitreEnCours.txt", "r");
 		$nom = fgets($fichier);
 		$nom = substr($nom, 0, strlen($nom)-1);
 		

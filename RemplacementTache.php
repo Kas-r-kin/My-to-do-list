@@ -21,27 +21,27 @@
 				switch ($typeavant) 
 			{
 				case 1:
-					$fic1 = fopen("./TacheEnCours.txt", "r+");
-					$fic2 = fopen("./TitreEnCours.txt", "r+");		
+					$fic1 = fopen("./Taches/TacheEnCours.txt", "r+");
+					$fic2 = fopen("./Taches/TitreEnCours.txt", "r+");		
 					$retour = "accueil.php";
-					$nom1 = "./TacheEnCours.txt";
-					$nom2 = "./TitreEnCours.txt";
+					$nom1 = "./Taches/TacheEnCours.txt";
+					$nom2 = "./Taches/TitreEnCours.txt";
 				break;
 				
 				case 2:
-					$fic1 = fopen("./TacheAFaire.txt", "r+");
-					$fic2 = fopen("./TitreAFaire.txt", "r+");
+					$fic1 = fopen("./Taches/TacheAFaire.txt", "r+");
+					$fic2 = fopen("./Taches/TitreAFaire.txt", "r+");
 					$retour = "Tafaire.php";
-					$nom1 = "./TacheAFaire.txt";
-					$nom2 = "./TitreAFaire.txt";
+					$nom1 = "./Taches/TacheAFaire.txt";
+					$nom2 = "./Taches/TitreAFaire.txt";
 				break;
 				
 				case 3:
-					$fic1 = fopen("./TacheTermine.txt", "r+");
-					$fic2 = fopen("./TitreTermine.txt", "r+");
+					$fic1 = fopen("./Taches/TacheTermine.txt", "r+");
+					$fic2 = fopen("./Taches/TitreTermine.txt", "r+");
 					$retour = "Ttermine.php";
-					$nom1 = "./TacheTermine.txt";
-					$nom2 = "./TitreTermine.txt";
+					$nom1 = "./Taches/TacheTermine.txt";
+					$nom2 = "./Taches/TitreTermine.txt";
 				break;
 			}
 		
@@ -95,8 +95,9 @@
 			
 			
 		$var = count($ArrayFile)-1;
+		$tailleNcontenu = count($ArrayNcontenu);
 			
-		for($i = 0; $i < $tailleNcontenu; $i++)
+		for($i = $num_ligne_titre; $i < $tailleNcontenu; $i++)
 		{
 			$var = $num_ligne_titre + 3 + $i;
 			$ArrayFile[$var] = substr($ArrayNcontenu[$i], 0, strlen($ArrayNcontenu[$i]));
@@ -137,24 +138,24 @@
 				switch ($typeavant) 
 				{
 				case 1:
-					$fic1 = fopen("./TacheEnCours.txt", "r+");
-					$fic2 = fopen("./TitreEnCours.txt", "r+");		
-					$nom1 = "./TacheEnCours.txt";
-					$nom2 = "./TitreEnCours.txt";
+					$fic1 = fopen("./Taches/TacheEnCours.txt", "r+");
+					$fic2 = fopen("./Taches/TitreEnCours.txt", "r+");		
+					$nom1 = "./Taches/TacheEnCours.txt";
+					$nom2 = "./Taches/TitreEnCours.txt";
 				break;
 				
 				case 2:
-					$fic1 = fopen("./TacheAFaire.txt", "r+");
-					$fic2 = fopen("./TitreAFaire.txt", "r+");
-					$nom1 = "./TacheAFaire.txt";
-					$nom2 = "./TitreAFaire.txt";
+					$fic1 = fopen("./Taches/TacheAFaire.txt", "r+");
+					$fic2 = fopen("./Taches/TitreAFaire.txt", "r+");
+					$nom1 = "./Taches/TacheAFaire.txt";
+					$nom2 = "./Taches/TitreAFaire.txt";
 				break;
 				
 				case 3:
-					$fic1 = fopen("./TacheTermine.txt", "r+");
-					$fic2 = fopen("./TitreTermine.txt", "r+");
-					$nom1 = "./TacheTermine.txt";
-					$nom2 = "./TitreTermine.txt";
+					$fic1 = fopen("./Taches/TacheTermine.txt", "r+");
+					$fic2 = fopen("./Taches/TitreTermine.txt", "r+");
+					$nom1 = "./Taches/TacheTermine.txt";
+					$nom2 = "./Taches/TitreTermine.txt";
 				break;
 			}
 			
@@ -162,27 +163,27 @@
 			switch ($typeapres) 
 			{
 				case 1:
-					$fic3 = fopen("./TacheEnCours.txt", "a+");
-					$fic4 = fopen("./TitreEnCours.txt", "a+");		
+					$fic3 = fopen("./Taches/TacheEnCours.txt", "a+");
+					$fic4 = fopen("./Taches/TitreEnCours.txt", "a+");		
 					$retour = "accueil.php";
-					$nom3 = "./TacheEnCours.txt";
-					$nom4 = "./TitreEnCours.txt";
+					$nom3 = "./Taches/TacheEnCours.txt";
+					$nom4 = "./Taches/TitreEnCours.txt";
 				break;
 				
 				case 2:
-					$fic3 = fopen("./TacheAFaire.txt", "a+");
-					$fic4 = fopen("./TitreAFaire.txt", "a+");
+					$fic3 = fopen("./Taches/TacheAFaire.txt", "a+");
+					$fic4 = fopen("./Taches/TitreAFaire.txt", "a+");
 					$retour = "Tafaire.php";
-					$nom3 = "./TacheAFaire.txt";
-					$nom4 = "./TitreAFaire.txt";
+					$nom3 = "./Taches/TacheAFaire.txt";
+					$nom4 = "./Taches/TitreAFaire.txt";
 				break;
 				
 				case 3:
-					$fic3 = fopen("./TacheTermine.txt", "a+");
-					$fic4 = fopen("./TitreTermine.txt", "a+");
+					$fic3 = fopen("./Taches/TacheTermine.txt", "a+");
+					$fic4 = fopen("./Taches/TitreTermine.txt", "a+");
 					$retour = "Ttermine.php";
-					$nom3 = "./TacheTermine.txt";
-					$nom4 = "./TitreTermine.txt";
+					$nom3 = "./Taches/TacheTermine.txt";
+					$nom4 = "./Taches/TitreTermine.txt";
 				break;
 			}
 			

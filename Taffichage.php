@@ -13,17 +13,17 @@
 		switch ($type) 
 		{
 			case 1:
-				$fic = fopen("./TacheEnCours.txt", "r");
+				$fic = fopen("./Taches/TacheEnCours.txt", "r");
 				$retour = "accueil.php";
 			break;
 			
 			case 2:
-				$fic = fopen("./TacheAFaire.txt", "r");
+				$fic = fopen("./Taches/TacheAFaire.txt", "r");
 				$retour = "Tafaire.php";
 			break;
 			
 			case 3:
-				$fic = fopen("./TacheTermine.txt", "r");
+				$fic = fopen("./Taches/TacheTermine.txt", "r");
 				$retour = "Ttermine.php";
 			break;
         }

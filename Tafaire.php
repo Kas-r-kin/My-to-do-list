@@ -81,7 +81,7 @@
 
 		$Type = 2;
         echo "<!-- Projects Row -->";
-		$fichier = fopen("./TitreAFaire.txt", "r");
+		$fichier = fopen("./Taches/TitreAFaire.txt", "r");
 		$nom = fgets($fichier);
 		$nom = substr($nom, 0, strlen($nom)-1);
 		while(!feof($fichier))
@@ -90,7 +90,7 @@
             echo "<div class=\"col-md-3 portfolio-item\">";
             echo "<p>Tâche $nom</p>";
                 echo "<a href=\"Taffichage.php?Tache=$nom&amp;type=$Type\">";
-                    echo "<img class=\"img-responsive\" src=\"./minichacal.jpg\" alt=\"chacal1 !\">";
+                    echo "<img class=\"img-responsive\" src=\"./chacal1.jpg\" alt=\"chacal1 !\">";
                 echo "</a>";
             echo "</div>";
         echo "</div>";
