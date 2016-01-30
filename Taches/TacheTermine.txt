@@ -9,7 +9,4 @@ C'est fini !
 C'est fini aussi!
 
 
-#chacal
-12
-21
-non
+

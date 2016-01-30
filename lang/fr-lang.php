@@ -13,7 +13,7 @@ $TXT_TASK = "Tâche";
 
 
 //---------------------------------------------------------
-// Tcreation.php
+// Tcreation.php / ModifTache.php
 //--------------------------------------------------------- 
 
 $TXT_TCREATION = "Création de tâche";
@@ -27,9 +27,11 @@ $TXT_MOD = "Modifier";
 $TXT_SUPP = "Supprimer";
 $TXT_RETURN = "Retour";
 
+
 //---------------------------------------------------------
-// ModifTache.php
+// Taffichage.php
 //--------------------------------------------------------- 
 
+$TXT_CONT = "Contenu de la tâche";
 
 ?>

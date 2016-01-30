@@ -1,28 +1,11 @@
 <?php
 
-	if ($_GET['lang'] == 'fr')	// si la langue est 'fr' (français) on inclut le fichier fr-lang.php
-	{   
-		$lang = 'fr';
-		include('lang/fr-lang.php');
-	}
-	else 
-	{
-		if ($_GET['lang'] == 'en')
-		{
-			$lang = 'en';
-			include('lang/en-lang.php');
-		}
-		else
-		{
-			$lang = 'fr';
-			include('lang/fr-lang.php');
-		}
-	}
+	include('lang.php');
 
-echo "<html>";
+	echo "<html>";
 	echo "<body>";
 		
-echo "<h1>$TXT_TCREATION</h1>";
+	echo "<h1>$TXT_TCREATION</h1>";
 		echo "<form method=\"post\" action=\"GestionTache.php?lang=$lang\">";
 
   		 echo "<p class=\"Interface\">";
@@ -49,6 +32,15 @@ echo "<h1>$TXT_TCREATION</h1>";
 				echo "<input type=\"submit\" value=\"$TXT_VALID\" />";
 		echo "</p>";
 		echo "</form>";
+		
+		echo "<form method=\"post\" action=\"accueil.php?lang=$lang\">";
+			echo "<p class=\"Interface2\">";
+				echo "<input type=\"submit\" value=\"$TXT_RETURN\" />";
+			echo "</p>";
+			
+  		echo "<p>";
+  		echo "</p>"; 		
+  		echo "</form>";
 
 
 	echo "</body>";
