@@ -4,27 +4,48 @@
 		
 
 <?php
+	
+	include('methodes.php');
+	
+	if ($_GET['lang'] == 'fr')	// si la langue est 'fr' (français) on inclut le fichier fr-lang.php
+	{   
+		$lang = 'fr';
+		include('lang/fr-lang.php');
+	}
+	else 
+	{
+		if ($_GET['lang'] == 'en')
+		{
+			$lang = 'en';
+			include('lang/en-lang.php');
+		}
+		else
+		{
+			$lang = 'fr';
+			include('lang/fr-lang.php');
+		}
+	}
 
 		$nom_tache = $_GET['Tache'];
 		$type = $_GET['type'];
 		
-	function readtask($nom_tache, $type) 
+	function readtask($nom_tache, $type, $lang) 
 	{	
 		switch ($type) 
 		{
 			case 1:
 				$fic = fopen("./Taches/TacheEnCours.txt", "r");
-				$retour = "accueil.php";
+				$retour = "accueil.php?lang=$lang";
 			break;
 			
 			case 2:
 				$fic = fopen("./Taches/TacheAFaire.txt", "r");
-				$retour = "Tafaire.php";
+				$retour = "Tafaire.php?lang=$lang";
 			break;
 			
 			case 3:
 				$fic = fopen("./Taches/TacheTermine.txt", "r");
-				$retour = "Ttermine.php";
+				$retour = "Ttermine.php?lang=$lang";
 			break;
         }
 		$validation = 0;
@@ -67,11 +88,11 @@
 		return $retour;
 	}
 	
-		$retour = readtask($nom_tache, $type);	
+		$retour = readtask($nom_tache, $type, $lang);	
 		
 		echo "<form method=\"post\" action=\"$retour\">";
 			echo "<p class=\"Interface2\">";
-				echo "<input type=\"submit\" value=\"Retour\" />";
+				echo "<input type=\"submit\" value=\"$TXT_RETURN\" />";
 			echo "</p>";
 			
   		echo "<p>";
@@ -81,9 +102,9 @@
   		
   		
   		
-  		echo "<form method=\"post\" action=\"ModifTache.php?Tache=$nom_tache&amp;type=$type\">";
+  		echo "<form method=\"post\" action=\"ModifTache.php?Tache=$nom_tache&amp;type=$type&amp;lang=$lang\">";
 			echo "<p class=\"Interface2\">";
-				echo "<input type=\"submit\" value=\"Modifier\" />";
+				echo "<input type=\"submit\" value=\"$TXT_MOD\" />";
 			echo "</p>";
 			
   		echo "<p>";
@@ -93,9 +114,9 @@
   		
   		
   		
-  		echo "<form method=\"post\" action=\"SuppressionTache.php?Tache=$nom_tache&amp;type=$type\">";
+  		echo "<form method=\"post\" action=\"SuppressionTache.php?Tache=$nom_tache&amp;type=$type&amp;lang=$lang\">";
 			echo "<p class=\"Interface2\">";
-				echo "<input type=\"submit\" value=\"Supprimer\" />";
+				echo "<input type=\"submit\" value=\"$TXT_SUPP\" />";
 			echo "</p>";
 			
   		echo "<p>";

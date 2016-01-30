@@ -1,6 +1,25 @@
 <?php
 
-		$titre = $_GET['titre'];
+	if ($_GET['lang'] == 'fr')	// si la langue est 'fr' (français) on inclut le fichier fr-lang.php
+	{   
+		$lang = 'fr';
+		include('lang/fr-lang.php');
+	}
+	else 
+	{
+		if ($_GET['lang'] == 'en')
+		{
+			$lang = 'en';
+			include('lang/en-lang.php');
+		}
+		else
+		{
+			$lang = 'fr';
+			include('lang/fr-lang.php');
+		}
+	}
+
+		$titre = $_POST['titre'];
 		$typetache = $_POST['typetache'];
 		$datedeb = $_POST['datedeb'];
 		$datefin = $_POST['datefin'];
@@ -51,9 +70,6 @@
 	
 		$retour = inserttask($titre, $datedeb, $datefin, $contenu, $typetache);
 		
-		echo $titre;
-		echo $contenu;
-		
-		header("Location: http://fc.isima.fr/~rophelizon/devweb_projet/$retour");
+		header("Location: http://fc.isima.fr/~rophelizon/devweb_projet/$retour?lang=$lang");
 		
 ?>

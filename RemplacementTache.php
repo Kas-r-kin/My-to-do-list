@@ -1,5 +1,25 @@
 <?php
 
+		if ($_GET['lang'] == 'fr')	// si la langue est 'fr' (français) on inclut le fichier fr-lang.php
+	{   
+		$lang = 'fr';
+		include('lang/fr-lang.php');
+	}
+	else 
+	{
+		if ($_GET['lang'] == 'en')
+		{
+			$lang = 'en';
+			include('lang/en-lang.php');
+		}
+		else
+		{
+			$lang = 'fr';
+			include('lang/fr-lang.php');
+		}
+	}
+
+
 	$typeapres = $_POST['typetache'];
 	$Ndatedeb = $_POST['datedeb'];
 	$Ndatefin = $_POST['datefin'];
@@ -330,7 +350,7 @@
 	$retour = replacetask($typeavant, $typeapres, $titre, $Ndatedeb, $Ndatefin, $Ncontenu, $Adatedeb, $Adatefin, $Acontenu);
 	
 	
-	header("Location: http://fc.isima.fr/~rophelizon/devweb_projet/$retour");
+	header("Location: http://fc.isima.fr/~rophelizon/devweb_projet/$retour?lang=$lang");
 		
 		
 ?>

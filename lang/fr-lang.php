@@ -9,20 +9,27 @@ $TXT_AFAIRE = "Tâches à faire";
 $TXT_TERMINE = "Tâches terminées";
 $TXT_CREATION = "Créer une tâche";
 $TXT_DECONNEXION = "Déconnexion";
+$TXT_TASK = "Tâche";
 
 
 //---------------------------------------------------------
 // Tcreation.php
 //--------------------------------------------------------- 
 
-/*define('Création de tâche', 'Création de tâche'); 
-define('Titre', 'Titre'); 
-define('Type de tâche', 'Type de tâche'); 
-define('Date de début', 'Date de début'); 
-define('Date de fin', 'Date de fin'); 
-define('Objectifs', 'Objectifs'); 
-define('Valider', 'Valider'); 
-define('Modifier', 'Modifier'); 
-define('Supprimer', 'Supprimer'); */
+$TXT_TCREATION = "Création de tâche";
+$TXT_TITRE = "Titre";
+$TXT_TYPE = "Type de tâche";
+$TXT_DATE_DEB = "Date de début";
+$TXT_DATE_FIN = "Date de fin";
+$TXT_OBJ = "Objectifs";
+$TXT_VALID = "Valider";
+$TXT_MOD = "Modifier";
+$TXT_SUPP = "Supprimer";
+$TXT_RETURN = "Retour";
+
+//---------------------------------------------------------
+// ModifTache.php
+//--------------------------------------------------------- 
+
 
 ?>

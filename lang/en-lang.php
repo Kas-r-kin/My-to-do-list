@@ -8,20 +8,24 @@ $TXT_ENCOURS = "Current task";
 $TXT_AFAIRE = "To do task";
 $TXT_TERMINE = "Achieved task";
 $TXT_CREATION = "Create a task";
-$TXT_DECONNEXION = "Disconnect"
+$TXT_DECONNEXION = "Disconnect";
+$TXT_TASK = "Task";
 
 //---------------------------------------------------------
-// Tcreation.php
+// Tcreation.php / ModifTache.php
 //--------------------------------------------------------- 
 
-/*define('Création de tâche', 'Task creation'); 
-define('Titre', 'Title'); 
-define('Type de tâche', 'Kind of task'); 
-define('Date de début', 'Beginning task date'); 
-define('Date de fin', 'Ending task date'); 
-define('Objectifs', 'Goals'); 
-define('Valider', 'OK'); 
-define('Modifier', 'Modify'); 
-define('Supprimer', 'Delete'); */
+$TXT_TCREATION = "Task creation";
+$TXT_TITRE = "Title";
+$TXT_TYPE = "Kind of task";
+$TXT_DATE_DEB = "Beginning task date";
+$TXT_DATE_FIN = "Ending task date";
+$TXT_OBJ = "Goals";
+$TXT_VALID = "OK";
+$TXT_MOD = "Modify";
+$TXT_SUPP = "Delete";
+$TXT_RETURN = "Return";
+
+
 
 ?>

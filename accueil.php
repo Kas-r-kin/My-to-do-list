@@ -2,18 +2,21 @@
 
 <?php
 
-	if ($_GET['lang'] =="fr")	// si la langue est 'fr' (français) on inclut le fichier fr-lang.php
-	{           
+	if ($_GET['lang'] == 'fr')	// si la langue est 'fr' (français) on inclut le fichier fr-lang.php
+	{   
+		$lang = 'fr';
 		include('lang/fr-lang.php');
 	}
 	else 
 	{
-		if ($_GET['lang'] =='en')
+		if ($_GET['lang'] == 'en')
 		{
+			$lang = 'en';
 			include('lang/en-lang.php');
 		}
 		else
 		{
+			$lang = 'fr';
 			include('lang/fr-lang.php');
 		}
 	}
@@ -60,24 +63,26 @@ echo "<body>";
                 echo "</button>";
 					echo "<li>";
                         echo "<a href=\"./accueil.php?lang=fr\">Français</a>";
+                    echo "</li>";
+                    echo "<li>";
                         echo "<a href=\"./accueil.php?lang=en\">English</a>";
                     echo "</li>";
-                echo "<a class=\"navbar-brand\" href=\"./index.html\">$TXT_DECONNEXION</a>";
+                echo "<a class=\"navbar-brand\" href=\"./logout.php\">$TXT_DECONNEXION</a>";
             echo "</div>";
             echo "<!-- Collect the nav links, forms, and other content for toggling -->";     
             echo "<div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">";
                 echo "<ul class=\"nav navbar-nav\">";
                     echo "<li>";
-                        echo "<a href=\"./accueil.php\">$TXT_ENCOURS</a>";
+                        echo "<a href=\"./accueil.php?lang=$lang\">$TXT_ENCOURS</a>";
                     echo "</li>";
                     echo "<li>";
-                        echo "<a href=\"./Tafaire.php\">$TXT_AFAIRE</a>";
+                        echo "<a href=\"./Tafaire.php?lang=$lang\">$TXT_AFAIRE</a>";
                     echo "</li>";
                     echo "<li>";
-                        echo "<a href=\"./Ttermine.php\">$TXT_TERMINE</a>";
+                        echo "<a href=\"./Ttermine.php?lang=$lang\">$TXT_TERMINE</a>";
                     echo "</li>";
                     echo "<li>";
-                        echo "<a href=\"./Tcreation.php\">$TXT_CREATION</a>";
+                        echo "<a href=\"./Tcreation.php?lang=$lang\">$TXT_CREATION</a>";
                     echo "</li>";
                 echo "</ul>";
             echo "</div>";
@@ -113,9 +118,9 @@ echo "<body>";
 		{
        echo "<div class=\"row\">";
             echo "<div class=\"col-md-3 portfolio-item\">";
-            echo "<p>Tâche $nom</p>";
-                echo "<a href=\"Taffichage.php?Tache=$nom&amp;type=$Type\">";
-                    echo "<img class=\"img-responsive\" src=\"./minichacal.jpg\" alt=\"chacal1 !\">";
+            echo "<p>$TXT_TASK $nom</p>";
+                echo "<a href=\"Taffichage.php?Tache=$nom&amp;type=$Type&amp;lang=$lang\">";
+                    echo "<img class=\"img-responsive\" src=\"./Images/minichacal.jpg\" alt=\"chacal1 !\">";
                 echo "</a>";
             echo "</div>";
         echo "</div>";

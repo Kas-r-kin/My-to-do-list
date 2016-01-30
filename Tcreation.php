@@ -1,34 +1,57 @@
-<html>
-	<body>
+<?php
+
+	if ($_GET['lang'] == 'fr')	// si la langue est 'fr' (français) on inclut le fichier fr-lang.php
+	{   
+		$lang = 'fr';
+		include('lang/fr-lang.php');
+	}
+	else 
+	{
+		if ($_GET['lang'] == 'en')
+		{
+			$lang = 'en';
+			include('lang/en-lang.php');
+		}
+		else
+		{
+			$lang = 'fr';
+			include('lang/fr-lang.php');
+		}
+	}
+
+echo "<html>";
+	echo "<body>";
 		
-<h1>Création de tâche</h1>
-		<form method="post" action="GestionTache.php">
+echo "<h1>$TXT_TCREATION</h1>";
+		echo "<form method=\"post\" action=\"GestionTache.php?lang=$lang\">";
 
-  		 <p class="Interface">
+  		 echo "<p class=\"Interface\">";
 				
-				<p>Titre</p>
-   			    <label for="titre"></label>
-    			<input type="text" name="titre" id="titre" placeholder= "Titre" /></br>
+				echo "<p>$TXT_TITRE</p>";
+   			    echo "<label for=\"titre\"></label>";
+    			echo "<input type=\"text\" name=\"titre\" id=\"titre\" placeholder= \"$TXT_TITRE\" /></br>";
     			
-    			<p>Type de tâche</p>
-    			<label for="typetache"></label>
-   			    <input type="typetache" name="typetache" id="typetache" placeholder= "En cours = 1 / A faire = 2" /></br>
+    			echo "<p>$TXT_TYPE</p>";
+    			echo "<label for=\"typetache\"></label>";
+   			    echo "<input type=\"typetache\" name=\"typetache\" id=\"typetache\" placeholder= \"En cours = 1 / A faire = 2\" /></br>";
  		      
-				<p>Date de début</p>
-    			<label for="datedeb"></label>
-   			    <input type="datedeb" name="datedeb" id="datedeb" placeholder= "Date de début" /></br>
+				echo "<p>$TXT_DATE_DEB</p>";
+    			echo "<label for=\"datedeb\"></label>";
+   			    echo "<input type=\"datedeb\" name=\"datedeb\" id=\"datedeb\" placeholder= \"$TXT_DATE_DEB\" /></br>";
    			    
-   			    <p>Date de fin</p>
-   			    <label for="datefin"></label>
-   			    <input type="datefin" name="datefin" id="datefin" placeholder= "Date de fin" /></br>
+   			    echo "<p>$TXT_DATE_FIN</p>";
+   			    echo "<label for=\"datefin\"></label>";
+   			    echo "<input type=\"datefin\" name=\"datefin\" id=\"datefin\" placeholder= \"$TXT_DATE_FIN\" /></br>";
    			    
-   			    <p>Objectifs</p>
-   			    <textarea name="contenu" rows="30" cols="100"></textarea></br>
+   			    echo "<p>$TXT_OBJ</p>";
+   			    echo "<textarea name=\"contenu\" rows=\"30\" cols=\"100\"></textarea></br>";
    			    
-				<input type="submit" value="Valider" />
-		</p>
-		</form>
+				echo "<input type=\"submit\" value=\"$TXT_VALID\" />";
+		echo "</p>";
+		echo "</form>";
 
 
-	</body>
-</html>
+	echo "</body>";
+echo "</html>";
+
+?>
