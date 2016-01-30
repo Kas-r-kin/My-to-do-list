@@ -32,5 +32,4 @@ $TXT_RETURN = "Return";
 
 $TXT_CONT = "Task content";
 
-
 ?>

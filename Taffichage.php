@@ -5,7 +5,7 @@
 
 <?php
 	
-	include('lang.php');
+	include('./lang/lang.php');
 	include('methodes.php');
 	
 
@@ -40,6 +40,9 @@
   		echo "</form>";
   		
   		
+  		//Admin rights required to delete the tasks
+  		if ($_SESSION['level'] == 1)
+  		{
   		
   		echo "<form method=\"post\" action=\"SuppressionTache.php?Tache=$nom_tache&amp;type=$type&amp;lang=$lang\">";
 			echo "<p class=\"Interface2\">";
@@ -50,7 +53,7 @@
 		
 		echo "</p>";
   		echo "</form>";
-  		
+		}
 ?>
 
 

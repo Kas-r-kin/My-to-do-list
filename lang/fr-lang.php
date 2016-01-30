@@ -11,7 +11,6 @@ $TXT_CREATION = "Créer une tâche";
 $TXT_DECONNEXION = "Déconnexion";
 $TXT_TASK = "Tâche";
 
-
 //---------------------------------------------------------
 // Tcreation.php / ModifTache.php
 //--------------------------------------------------------- 
@@ -26,7 +25,6 @@ $TXT_VALID = "Valider";
 $TXT_MOD = "Modifier";
 $TXT_SUPP = "Supprimer";
 $TXT_RETURN = "Retour";
-
 
 //---------------------------------------------------------
 // Taffichage.php

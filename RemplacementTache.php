@@ -1,6 +1,6 @@
 <?php
 
-	include('lang.php');
+	include('./lang/lang.php');
 	include('methodes.php');
 
 	$typeapres = $_POST['typetache'];

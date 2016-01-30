@@ -1,7 +1,38 @@
 <?php
 
+
+	function checkParam($param)
+	{
+		return isset($param) && !empty($param);
+	}
+		
+		
+	function checkUser($Login, $Password)
+	{
+		$validation = 0;
+		$BDD = fopen("./BDD.txt", "r");
+		
+		while(!feof($BDD))
+		{
+			$ligne = fgets($BDD);
+			$ligne = substr($ligne, 0, strlen($ligne)-1);
+			//Retire le caractère de contrôle \n
+			list($user, $passwd, $uid) = split(":", $ligne, 3);
+			if (($user == $Login) && ($passwd == $Password))
+			{
+				$validation = 1;
+				$_SESSION['level']=$uid;
+			}
+		}
+		fclose($BDD);
+		return $validation;
+	}
+
+
+
 	function readtask($nom_tache, $type, $lang, $TXT_TASK, $TXT_DATE_DEB, $TXT_DATE_FIN, $TXT_CONT) 
 	{	
+		//Identify the right file which contains the researched task
 		switch ($type) 
 		{
 			case 1:
@@ -20,7 +51,8 @@
 			break;
         }
 		$validation = 0;
-
+		
+		//Search the task thanks to the title and print it
 		while($validation == 0 && !feof($fic))
 		{	
 			fscanf($fic, "%s", $balayage);
@@ -63,7 +95,7 @@
 	function replacetask($typeavant, $typeapres, $titre, $Ndatedeb, $Ndatefin, $Ncontenu, $Adatedeb, $Adatefin, $Acontenu) 
 	{	
 		
-		//If the task keep the same type
+		//If the task keep the same type after modification
 		if($typeavant == $typeapres)
 		{
 				//Need to find in which file the task is registered
@@ -180,7 +212,7 @@
 		
 		
 		
-		//If the task is changing of type
+		//If the task don't keep the same type
 		else
 		{
 				//Need to find in which file the task is registered...
@@ -523,6 +555,8 @@
 	
 	function inserttask($titre, $datedeb, $datefin, $contenu, $type) 
 	{	
+		
+		//Identify the right file which contains the researched task
 		switch ($type) 
 		{
 			case 1:
@@ -543,6 +577,8 @@
 				$retour = "Ttermine.php";
 			break;
         }
+        
+			//Write the new task at the end of the file
 			
 			fprintf($fic1, "\n");
 			fprintf($fic1, "#");
@@ -567,6 +603,7 @@
 	
 	function changetask($titre, $typetache, $lang, $TXT_MOD, $TXT_TYPE, $TXT_DATE_DEB, $TXT_DATE_FIN, $TXT_OBJ, $TXT_VALID) 
 	{	
+		//Identify the right file which contains the researched task
 		switch ($typetache) 
 		{
 			case 1:
@@ -585,7 +622,8 @@
 			break;
         }
 		$validation = 0;
-
+		
+		//Save the task which will be changed to print it
 		while($validation == 0 && !feof($fic))
 		{	
 			fscanf($fic, "%s", $balayage);
@@ -613,6 +651,8 @@
 					
 				}
 				
+				
+				//Print a form with the former content already in place
 				echo "<h1>$TXT_MOD</h1>";
 				echo "<p>$titre</p>";
 				

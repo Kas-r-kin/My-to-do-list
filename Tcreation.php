@@ -1,6 +1,6 @@
 <?php
 
-	include('lang.php');
+	include('./lang/lang.php');
 
 	echo "<html>";
 	echo "<body>";

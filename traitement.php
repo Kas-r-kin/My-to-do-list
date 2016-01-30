@@ -15,6 +15,8 @@
 			
   		<p>
 		<?php
+		
+		include('methodes.php');
   		
   		$pseudo = $_POST['Username'];
   		$pass = sha1($_POST['Password']);
@@ -23,31 +25,7 @@
   		$new_pass_verif = $_POST['NewPasswordVerif'];
 
   		
-  		function checkParam($param)
-		{
-			return isset($param) && !empty($param);
-		}
-		
-		function checkUser($Login, $Password)
-		{
-			$validation = 0;
-			$BDD = fopen("./BDD.txt", "r");
-			
-			while(!feof($BDD))
-			{
-				$ligne = fgets($BDD);
-				$ligne = substr($ligne, 0, strlen($ligne)-1);
-				//Retire le caractère de contrôle \n
-				list($user, $passwd, $uid) = split(":", $ligne, 3);
-				if (($user == $Login) && ($passwd == $Password))
-				{
-					$validation = 1;
-					$_SESSION['level']=$uid;
-				}
-			}
-			fclose($BDD);
-			return $validation;
-		}
+  		
 		
 		/*
 		function Register($Login, $Password, $Password_verif)
