@@ -1,8 +1,5 @@
 <!-- http://fc.isima.fr/~rophelizon -->
 
-<!-- Implémenter des tests auto avec travis -->
-<!-- Présentation : 1 partie dev, 1 partie outils-->
-
 <!DOCTYPE html>
 <html>
 	<link rel="stylesheet" href="traitement.css" />
@@ -10,7 +7,7 @@
 		<form method="post" action="index.html">
 			
 			<p class="Interface2">
-				<input type="submit" value="Déconnexion" />
+				<input type="submit" value="Cancel" />
 			</p>
 			
   		<p>
@@ -18,82 +15,71 @@
 		
 		include('methodes.php');
   		
-  		$pseudo = $_POST['Username'];
+  		/*$pseudo = $_POST['Username'];
   		$pass = sha1($_POST['Password']);
+  		$new_pseudo = $_POST['NewUsername'];
+  		$new_pass = sha1($_POST['NewPassword']);
+  		$new_pass_verif = sha1($_POST['NewPasswordVerif']);*/
+
+		
+  		$pseudo = $_POST['Username'];
+  		$pass = $_POST['Password'];
   		$new_pseudo = $_POST['NewUsername'];
   		$new_pass = $_POST['NewPassword'];
   		$new_pass_verif = $_POST['NewPasswordVerif'];
-
   		
-  		
+  		$remp = array('\\', ':', '#');
+        $pseudo = str_replace($remp, "", $pseudo);
+        $pass = str_replace($remp, "", $pass);
+        $new_pseudo = str_replace($remp, "", $new_pseudo);
+        $new_pass = str_replace($remp, "", $new_pass);
+        $new_pass_verif = str_replace($remp, "", $new_pass_verif);
+        
+        $pseudo = substr($pseudo, 0, 20);
+        $pass = substr($pass, 0, 20);
+        $new_pseudo = substr($new_pseudo, 0, 20);
+        $new_pass = substr($new_pass, 0, 20);
+        $new_pass_verif = substr($new_pass_verif, 0, 20);
+        
+        $pass = sha1($pass);
+        $new_pass = sha1($new_pass);
+        $new_pass_verif = sha1($new_pass_verif);
 		
-		/*
-		function Register($Login, $Password, $Password_verif)
+		
+		//Sign in_test
+		if(checkParam($new_pseudo) && checkParam($new_pass) && checkParam($new_pass_verif))
 		{
-			$validation = 0;
-			$BDD = fopen("./BDD.txt", "rw");
-			
-			while(!feof($BDD))
+			if(Register($new_pseudo, $new_pass, $new_pass_verif))
 			{
-				$ligne = fgets($BDD);
-				$ligne = substr($ligne, 0, strlen($ligne)-1);
-				//Retire le caractère de contrôle \n
-				list($user, $passwd, $uid) = split(":", $ligne, 3);
-				if($Password == $Password_verif)
-				{
-					if ($user != $Login)
-					{
-						$validation = 1;
-					}
-					else
-					{
-						echo "Login déjà pris";
-					}
-				}
-				else
-				{
-					echo "Mots de passe différents";
-				}
+				//successful sign in
+				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.html');
 			}
-			if ($validation)
+			else
 			{
-				$array = array ("", $user, $Password, "2\n");
-				$contenu = implode(":", $array);
-				fputs($BDD, $contenu);
+				//failed sign in
+				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.html');
 			}
-			
-			fclose($BDD);
-			return $validation;
 		}
-		*/
-				
 		
+		//login_test
 		if (checkParam($pseudo) && checkParam($pass))
 		{
 			if (checkUser($pseudo, $pass))
 			{
+				//known user
 				$_SESSION['auth']=true;
 				$_SESSION['login']=$pseudo;
-				$_SESSION['lang'] = "fr";
 				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.php');
 				exit();
 			}
 			else
 			{ 
-				//echo 'Utilisateur inconnu';
+				//unknown user
 				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.html');
 				exit();
 			}
 		}
-		else
-		{
-			//echo 'Login ou mot de passe incorrect';
-			header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.html');
-			exit();
-		}
- 		
-  		//Register($new_pseudo, $new_pass, $new_pass_verif);
-  		
+
   		?>
   		</p> 		
   		</form>

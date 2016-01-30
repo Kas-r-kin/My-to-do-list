@@ -1,32 +1,74 @@
 <?php
 
 
-	function checkParam($param)
-	{
-		return isset($param) && !empty($param);
-	}
-		
-		
-	function checkUser($Login, $Password)
-	{
-		$validation = 0;
-		$BDD = fopen("./BDD.txt", "r");
-		
-		while(!feof($BDD))
+  		//valid field
+  		function checkParam($param)
 		{
-			$ligne = fgets($BDD);
-			$ligne = substr($ligne, 0, strlen($ligne)-1);
-			//Retire le caractère de contrôle \n
-			list($user, $passwd, $uid) = split(":", $ligne, 3);
-			if (($user == $Login) && ($passwd == $Password))
-			{
-				$validation = 1;
-				$_SESSION['level']=$uid;
-			}
+			$ok = (isset($param) && !empty($param));
+			return  $ok;
 		}
-		fclose($BDD);
-		return $validation;
-	}
+		
+		//login function
+		function checkUser($Login, $Password)
+		{
+			$validation = 0;
+			$BDD = fopen("./BDD.txt", "r");
+			
+			while(!feof($BDD))
+			{
+				$ligne = fgets($BDD);
+				$ligne = substr($ligne, 0, strlen($ligne)-1);
+				list($user, $passwd, $uid) = split(":", $ligne, 3);
+				if (($user == $Login) && ($passwd == $Password))
+				{
+					//known user
+					$validation = 1;
+					$_SESSION['level']=$uid;
+				}
+			}
+			fclose($BDD);
+			return $validation;
+		}
+		
+		
+		//sign in function
+		function Register($Login, $Password, $Password_verif)
+		{
+			$validation = 0;
+			if($Password == $Password_verif)
+			{
+				//new password OK
+				$validation = 1;
+				$BDD = fopen("./BDD.txt", "rw+");
+				
+				if($BDD)
+				{	
+					//known login test
+					while(!feof($BDD))
+					{
+						$ligne = fgets($BDD);
+						$ligne = substr($ligne, 0, strlen($ligne)-1);
+						list($user, $passwd, $uid) = split(":", $ligne, 3);
+						if ($user == $Login)
+						{
+							$validation = 0;
+							//indisponible login;
+						}
+					}
+				}
+			}
+			
+			if ($validation)
+			{
+				//create a new user
+				$array = array ("", $Login, $Password, "2\n");
+				$contenu = implode(":", $array);
+				fprintf($BDD,"%s:%s:2\n", $Login, $Password);
+				fclose($BDD);
+			}
+			
+			return $validation;
+		}
 
 
 
@@ -125,6 +167,12 @@
 					$nom2 = "./Taches/TitreTermine.txt";
 				break;
 			}
+			
+		$remp = array('\\', ':', '#');
+        $Ndatedeb = str_replace($remp, "", $Ndatedeb);
+        $Ndatefin = str_replace($remp, "", $Ndatefin);
+        $Ncontenu = str_replace($remp, "", $Ncontenu);
+		
 		
 		
 		$validation = 0;
@@ -268,6 +316,11 @@
 				break;
 			}
 			
+			
+		$remp = array('\\', ':', '#');
+        $Ndatedeb = str_replace($remp, "", $Ndatedeb);
+        $Ndatefin = str_replace($remp, "", $Ndatefin);
+        $Ncontenu = str_replace($remp, "", $Ncontenu);
 			
 			$validation = 0;
 			
@@ -578,8 +631,16 @@
 			break;
         }
         
+        $remp = array('\\', ':', '#');
+        
+        $titre = str_replace($remp, "", $titre);
+        $datedeb = str_replace($remp, "", $datedeb);
+        $datefin = str_replace($remp, "", $datefin);
+        $contenu = str_replace($remp, "", $contenu);
+        
+        
+        
 			//Write the new task at the end of the file
-			
 			fprintf($fic1, "\n");
 			fprintf($fic1, "#");
 			fprintf($fic1, $titre);
@@ -671,7 +732,7 @@
    			    echo "<label for=\"datefin\"></label>";
    			    echo "<input type=\"datefin\" name=\"datefin\" id=\"datefin\" value=\"$datefin\" placeholder= \"Date de fin\" /></br>";
    			    
-
+				
 				
 				
 				echo "<p>$TXT_OBJ</p>";
