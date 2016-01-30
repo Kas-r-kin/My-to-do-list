@@ -1,5 +1,3 @@
-<!--La fonction écrit bien dans les fichiers, mais ils ne tiennent compte de la modification QUE lorsqu'un utilisateur les as modifiés manuellement...-->
-
 <?php
 
 		$titre = $_GET['titre'];
