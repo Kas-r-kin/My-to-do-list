@@ -62,6 +62,8 @@
 			if(Register($new_pseudo, $new_pass, $new_pass_verif))
 			{
 				//successful sign in
+				$_SESSION['log']=1;
+				session_start();
 				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.php');
 			}
 			else
@@ -77,8 +79,8 @@
 			if (checkUser($pseudo, $pass))
 			{
 				//known user
-				$_SESSION['auth']=true;
-				$_SESSION['login']=$pseudo;
+				$_SESSION['log']=1;
+				session_start();
 				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.php');
 				exit();
 			}

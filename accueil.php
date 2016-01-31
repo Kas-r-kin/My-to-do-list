@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-
+	
+	include('check_log.php');
 	include('./lang/lang.php');
 
 echo "<html>";

@@ -1,7 +1,9 @@
 <?php
-
+	
+	include('check_log.php');
 	include('./lang/lang.php');
 	include('methodes.php');
+	
 
 	$typeapres = $_POST['typetache'];
 	$Ndatedeb = $_POST['datedeb'];

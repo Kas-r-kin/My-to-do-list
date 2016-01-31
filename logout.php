@@ -1,7 +1,9 @@
 <?php
-	$_SESSION['login'] = NULL;
+
+	include('check_log.php');
+	
 	$_SESSION['level'] = NULL;
-	$_SESSION['auth']=NULL;
+	$_SESSION['log'] = NULL;
 
 	session_destroy();
 

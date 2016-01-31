@@ -5,6 +5,7 @@
 
 <?php
 	
+	include('check_log.php');
 	include('./lang/lang.php');
 	include('methodes.php');
 	
