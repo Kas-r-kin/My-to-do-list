@@ -91,6 +91,10 @@
 				$fic = fopen("./Taches/TacheTermine.txt", "r");
 				$retour = "Ttermine.php?lang=$lang";
 			break;
+			
+			default:
+				header("Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.php");
+			break;
         }
 		$validation = 0;
 		
@@ -662,7 +666,7 @@
 	}
 	
 	
-	function changetask($titre, $typetache, $lang, $TXT_MOD, $TXT_TYPE, $TXT_DATE_DEB, $TXT_DATE_FIN, $TXT_OBJ, $TXT_VALID) 
+	function changetask($titre, $typetache, $lang, $TXT_MOD, $TXT_TYPE, $TXT_DATE_DEB, $TXT_DATE_FIN, $TXT_OBJ, $TXT_VALID, $TXT_RETURN) 
 	{	
 		//Identify the right file which contains the researched task
 		switch ($typetache) 
@@ -741,6 +745,11 @@
 				echo "<input type=\"submit\" value=\"$TXT_VALID\" />";
 		echo "</p>";
 		echo "</form>";
+		
+				echo "<form method=\"post\" action=\"accueil.php?lang=$lang\">";
+			echo "<p class=\"Interface2\">";
+				echo "<input type=\"submit\" value=\"$TXT_RETURN\" />";
+			echo "</p>";
 				
 				$validation = 1;
 			}

@@ -10,7 +10,7 @@
 	$type = $_GET['type'];
 	
 
-	changetask($nom_tache, $type, $lang, $TXT_MOD, $TXT_TYPE, $TXT_DATE_DEB, $TXT_DATE_FIN, $TXT_OBJ, $TXT_VALID);
+	changetask($nom_tache, $type, $lang, $TXT_MOD, $TXT_TYPE, $TXT_DATE_DEB, $TXT_DATE_FIN, $TXT_OBJ, $TXT_VALID, $TXT_RETURN);
 	
 	?>
 
