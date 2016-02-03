@@ -1,32 +1,14 @@
-<!-- http://fc.isima.fr/~rophelizon -->
-
-<!DOCTYPE html>
-<html>
-	<link rel="stylesheet" href="traitement.css" />
-	<body>
-		<form method="post" action="index.html">
-			
-			<p class="Interface2">
-				<input type="submit" value="Cancel" />
-			</p>
-			
-  		<p>
 		<?php
 		
 		include('methodes.php');
-  		
-  		/*$pseudo = $_POST['Username'];
-  		$pass = sha1($_POST['Password']);
-  		$new_pseudo = $_POST['NewUsername'];
-  		$new_pass = sha1($_POST['NewPassword']);
-  		$new_pass_verif = sha1($_POST['NewPasswordVerif']);*/
-
 		
-  		$pseudo = $_POST['Username'];
-  		$pass = $_POST['Password'];
-  		$new_pseudo = $_POST['NewUsername'];
-  		$new_pass = $_POST['NewPassword'];
-  		$new_pass_verif = $_POST['NewPasswordVerif'];
+		start_session();
+
+  		$pseudo = (isset($_POST['Username']) && !empty($_POST['Username'])) ? $_POST['Username'] : '';
+  		$pass = (isset($_POST['Password']) && !empty($_POST['Password'])) ? $_POST['Password'] : '';
+  		$new_pseudo = (isset($_POST['NewUsername']) && !empty($_POST['NewUsername'])) ? $_POST['NewUsername'] : '';
+  		$new_pass = (isset($_POST['NewPassword']) && !empty($_POST['NewPassword'])) ? $_POST['NewPassword'] : '';
+  		$new_pass_verif = (isset($_POST['NewPasswordVerif']) && !empty($_POST['NewPasswordVerif'])) ? $_POST['NewPasswordVerif'] : '';
   		
   		$remp = array('\\', ':', '#');
         $pseudo = str_replace($remp, "", $pseudo);
@@ -37,9 +19,9 @@
         
         $verif_pass = strlen($new_pass);
         
-        if(isset($new_pass) && !empty($new_pass) && $verif_pass < 6)
+        if(isset($new_pass) && !empty($new_pass) && $verif_pass < 5)
         {
-			header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.html');
+			header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.php');
 			exit();
 		}
         
@@ -63,13 +45,13 @@
 			{
 				//successful sign in
 				$_SESSION['log']=1;
-				session_start();
+				setcookie("login", $new_pseudo, time() + 31536000);
 				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.php');
 			}
 			else
 			{
 				//failed sign in
-				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.html');
+				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.php');
 			}
 		}
 		
@@ -80,20 +62,16 @@
 			{
 				//known user
 				$_SESSION['log']=1;
-				session_start();
+				setcookie("login", $pseudo, time() + 31536000);
 				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.php');
 				exit();
 			}
 			else
 			{ 
 				//unknown user
-				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.html');
+				header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.php');
 				exit();
 			}
 		}
 
   		?>
-  		</p> 		
-  		</form>
-	</body>
-</html>

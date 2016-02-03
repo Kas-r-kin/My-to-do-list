@@ -7,5 +7,5 @@
 
 	session_destroy();
 
-	header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.html');
+	header('Location: http://fc.isima.fr/~rophelizon/devweb_projet/index.php');
 ?>

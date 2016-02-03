@@ -1,11 +1,18 @@
-<html>
-	<body>
-
-	<?php
+<?php
 	
+	include('methodes.php');
 	include('check_log.php');
 	include('./lang/lang.php');
-	include('methodes.php');
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>TON TITRE DE LA PAGE !!!!! BORDEL, SUR TON ONGLET !!!!</title>
+<meta charset="UTF-8"/>
+</title>
+
+	<?php
 	
 	$nom_tache = $_GET['Tache'];
 	$type = $_GET['type'];

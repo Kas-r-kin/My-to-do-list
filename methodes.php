@@ -1,5 +1,10 @@
 <?php
 
+	function start_session() {
+		if(session_id() == "")
+			session_start();
+		else session_regenerate_id(true);
+	}
 	
   		//valid field
   		function checkParam($param)
@@ -18,7 +23,7 @@
 			{
 				$ligne = fgets($BDD);
 				$ligne = substr($ligne, 0, strlen($ligne)-1);
-				list($user, $passwd, $uid) = split(":", $ligne, 3);
+				list($user, $passwd, $uid) = preg_split("/:/", $ligne, 3);
 				if (($user == $Login) && ($passwd == $Password))
 				{
 					//known user
@@ -48,7 +53,7 @@
 					{
 						$ligne = fgets($BDD);
 						$ligne = substr($ligne, 0, strlen($ligne)-1);
-						list($user, $passwd, $uid) = split(":", $ligne, 3);
+						list($user, $passwd, $uid) = preg_split("/:/", $ligne, 3);
 						if ($user == $Login)
 						{
 							$validation = 0;
@@ -93,7 +98,8 @@
 			break;
 			
 			default:
-				header("Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.php");
+				//header("Location: http://fc.isima.fr/~rophelizon/devweb_projet/accueil.php");
+				header("Location: http://localhost/My-to-do-list-master/accueil.php");
 			break;
         }
 		$validation = 0;
@@ -104,7 +110,6 @@
 			fscanf($fic, "%s", $balayage);
 
 			$array = array("#", $nom_tache);
-
 			if(substr($balayage, 0, 1) == "#" && !strcmp($balayage, implode("", $array)))
 			{
 

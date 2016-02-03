@@ -1,8 +1,8 @@
 <?php
 	
+	include('methodes.php');
 	include('check_log.php');
 	include('./lang/lang.php');
-	include('methodes.php');
 	
 
 	$typeapres = $_POST['typetache'];
@@ -21,6 +21,6 @@
 	
 	
 	header("Location: http://fc.isima.fr/~rophelizon/devweb_projet/$retour?lang=$lang");
-		
+	exit();
 		
 ?>

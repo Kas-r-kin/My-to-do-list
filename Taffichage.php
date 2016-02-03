@@ -1,13 +1,21 @@
+<?php
+	
+	include('methodes.php');
+	include('check_log.php');
+	include('./lang/lang.php');
+?>
+
+<!DOCTYPE html>
 <html>
+<head>
+<title>TON TITRE DE LA PAGE !!!!! BORDEL, SUR TON ONGLET !!!!</title>
+<meta charset="UTF-8"/>
+</title>
 	<link rel="stylesheet" href="traitement.css" />
 	<body>
 		
 
 <?php
-	
-	include('check_log.php');
-	include('./lang/lang.php');
-	include('methodes.php');
 	
 
 
@@ -42,7 +50,7 @@
   		
   		
   		//Admin rights required to delete the tasks
-  		if ($_SESSION['level'] == 1)
+  		if (isset($_SESSION['level']) && $_SESSION['level'] == 1)
   		{
   		
   		echo "<form method=\"post\" action=\"SuppressionTache.php?Tache=$nom_tache&amp;type=$type&amp;lang=$lang\">";

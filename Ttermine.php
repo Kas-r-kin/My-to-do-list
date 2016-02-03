@@ -3,6 +3,7 @@
 
 <?php
 	
+	include('methodes.php');
 	include('check_log.php');
 	include('./lang/lang.php');
 

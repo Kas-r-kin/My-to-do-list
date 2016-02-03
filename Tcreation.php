@@ -1,9 +1,15 @@
 <?php
 	
+	include('methodes.php');
 	include('check_log.php');
 	include('./lang/lang.php');
 
+	echo "<!doctype html>";
 	echo "<html>";
+	echo "<head>";
+	echo "<title>TON TITRE DE LA PAGE !!!!! BORDEL, SUR TON ONGLET !!!!</title>";
+	echo "<meta charset=\"UTF-8\"/>";
+	echo "</title>";
 	echo "<body>";
 		
 	echo "<h1>$TXT_TCREATION</h1>";
